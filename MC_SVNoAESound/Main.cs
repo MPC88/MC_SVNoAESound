@@ -14,7 +14,7 @@ namespace MC_SVNoAESound
     {
         public const string pluginGuid = "mc.starvalor.noaesound";
         public const string pluginName = "SV No Active Equipment Sound";
-        public const string pluginVersion = "1.0.0";
+        public const string pluginVersion = "1.0.1";
 
         public void Awake()
         {
@@ -25,7 +25,7 @@ namespace MC_SVNoAESound
         [HarmonyPostfix]
         private static void BuffControlBegin_Post(AudioSource ___audioS)
         {
-            if (___audioS.isPlaying)
+            if (___audioS != null && ___audioS.isPlaying)
                 ___audioS.Stop();
         }
     }
